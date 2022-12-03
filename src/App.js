@@ -2,12 +2,28 @@ import './App.css';
 import Home from './components/Home/Home';
 import RecipeDetails from './components/RecipeDetails/RecipeDetails';
 import {Routes, Route} from 'react-router-dom'
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
+import axios from 'axios';
 
 
-function App() {
+const App = () => {
 
   const [allRecipes, setAllRecipes] = useState([])
+
+  useEffect(() => {
+    getRecipes()
+  }, [])
+
+  const getRecipes = () => {
+    axios({
+      method: 'get',
+      url: 'http://localhost:4000/api/recipes'
+    })
+    .then(res => 
+      setAllRecipes(res.data)
+      )
+    .catch (err => console.log(err))
+  }
 
   return (
     <div>
@@ -16,8 +32,8 @@ function App() {
   </div>
 
     <Routes>
-      <Route path='/' element={<Home allRecipes={allRecipes} setAllRecipes={setAllRecipes} />} />
-      <Route path='/recipe/:id' element={<RecipeDetails allRecipes={allRecipes}/>}/>
+      <Route path='/' element={<Home allRecipes={allRecipes} />} />
+      <Route path='/recipe/:id' element={<RecipeDetails allRecipes={allRecipes} getRecipes={getRecipes}/>}/>
     </Routes>
     </div>
   );

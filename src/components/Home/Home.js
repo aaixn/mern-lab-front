@@ -6,20 +6,8 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 import RecipeDetails from '../RecipeDetails/RecipeDetails';
 
-const Home = ({allRecipes, setAllRecipes}) => {
+const Home = ({allRecipes}) => {
   
-  axios({
-    method: 'get',
-    url: 'http://localhost:4000/api/recipes'
-  })
-  .then(res => 
-    setAllRecipes(res.data)
-    )
-  .catch (err => console.log(err))
-  
-    const handleClick = (e) => {
-      console.log(e)
-    }
 
   let recipeList = allRecipes.map((recipe, index) =>{
     return(
@@ -28,8 +16,7 @@ const Home = ({allRecipes, setAllRecipes}) => {
       to={'/recipe/' + recipe._id}
       style={{textDecoration: 'none', color: 'black'}} 
       >
-        <div onClick={handleClick}> Recipe Name: {recipe.title} </div>
-        <div>{recipe._id}</div>
+        <div> {recipe.title} </div>
         </Link>
       </div>
     )

@@ -5,10 +5,21 @@
 // and the form will show up.
 
 import React from 'react'
+import axios from 'axios'
+import {useParams, Link} from 'react-router-dom'
 
-function RecipeDelete() {
+const RecipeDelete = () => {
+  const {id} = useParams()
+  const deleteRecipe = () => {
+    axios({
+      method: 'delete',
+      url: `http://localhost:4000/api/recipes/${id}`
+    })
+    .catch (err => console.log(err))
+  }
+
   return (
-    <div>RecipeDelete</div>
+    <button className='delete' onClick={deleteRecipe}>Delete</button>
   )
 }
 
