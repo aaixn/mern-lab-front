@@ -3,10 +3,15 @@
 // It will also contain two buttons to Update and Delete the recipe's details.
 
 import React from 'react'
+import {useParams} from 'react-router-dom'
 
-function RecipeDetails() {
+const RecipeDetails = ({allRecipes}) => {
+  const {id} = useParams;
+
+  let oneRecipe = allRecipes.filter((recipe, index) => recipe._id === id)
+  console.log(oneRecipe)
   return (
-    <div>RecipeDetails</div>
+    <div>{oneRecipe.title}</div>
   )
 }
 
