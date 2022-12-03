@@ -17,7 +17,7 @@ function App() {
 
     <Routes>
       <Route path='/' element={<Home allRecipes={allRecipes} setAllRecipes={setAllRecipes} />} />
-      <Route path='/:id' element={<RecipeDetails allRecipes={allRecipes}/>}/>
+      <Route path='/recipe/:id' element={<RecipeDetails allRecipes={allRecipes}/>}/>
     </Routes>
     </div>
   );
