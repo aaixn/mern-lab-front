@@ -22,6 +22,7 @@ const Home = ({allRecipes}) => {
   })
   setShowRecipeList(recipeList)
 }, [allRecipes])
+
   return (
     <div>
       <h1>All Recipes</h1>
@@ -32,4 +33,6 @@ const Home = ({allRecipes}) => {
 }
 
 export default Home
+
+// * after delete, displayed recipes does not update to the data in the backend until after reload
 
