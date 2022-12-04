@@ -30,7 +30,6 @@ const handleCreate = (e) => {
   newRecipeData[e.target.name] = e.target.value
   setNewRecipe(newRecipeData)  
 }
-console.log(newRecipe)
   return (
     <div>
         <form>
