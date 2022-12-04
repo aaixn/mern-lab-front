@@ -6,6 +6,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import {useParams, Link} from 'react-router-dom'
 import RecipeDelete from '../RecipeDelete/RecipeDelete';
+import RecipeUpdate from '../RecipeUpdate/RecipeUpdate';
 
 const RecipeDetails = ({allRecipes, getRecipes}) => {
   const {id} = useParams();
@@ -21,7 +22,7 @@ const RecipeDetails = ({allRecipes, getRecipes}) => {
   }, [])
   const oneRecipe = allRecipes.filter(recipe => recipe._id === id)
 
-  return (
+  return oneRecipe[0] ? (           // fix the reload problem
     <div>
       <h1>{oneRecipe[0].title}</h1>
       <p>Cook Time: {oneRecipe[0].cookTime}</p>
@@ -34,11 +35,9 @@ const RecipeDetails = ({allRecipes, getRecipes}) => {
       })}
       <p>Intructions: {oneRecipe[0].instructions}</p>
       <Link to='/'><RecipeDelete /></Link>
+      <RecipeUpdate />
     </div>
-  )
+  ) : null
 }
 
 export default RecipeDetails
-
-// issue - on reload, blank page; doesnt wait before attempting to render
-// * Cannot read properties of undefined (reading 'title')

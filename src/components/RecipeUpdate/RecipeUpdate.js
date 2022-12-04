@@ -4,11 +4,46 @@
 // To access this Update feature, there will be a button inside the RecipeDetails
 // and the form will show up.
 
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
+import {useParams} from 'react-router-dom'
 
 function RecipeUpdate() {
+  const {id} = useParams()
+  const [form, setForm] = useState({
+    title: '',
+    difficult: '',
+    ingredients: [],
+    instructions: ''
+  })
+
+  const updateRecipe = async () => {
+    await axios.put(`http://localhost:4000/api/recipes/${id}`, {form})
+    .catch (err => console.log(err))
+  }
+
+  const handleChange = (e) => {
+    const newObj = {...form}
+    newObj[e.target.name] = e.target.value
+    setForm(newObj)
+  }
+
+  const handleSubmit = () => {
+    updateRecipe()
+  }
+  
+
   return (
-    <div>RecipeUpdate</div>
+    <div>
+      <form>
+        <input placeholder='Recipe Title' name='title' value={form.title} onChange={handleChange}></input>
+        <input placeholder='Cook Time' name='cookTime' value={form.title} onChange={handleChange}></input>
+        <input placeholder='Difficult (true or false)' name='difficult' value={form.difficult} onChange={handleChange}></input>
+        <input placeholder='Ingredients' name='ingredients' value={form.ingredients} onChange={handleChange}></input>
+        <input placeholder='Instructions' name='instructions' value={form.instructions} onChange={handleChange}></input>
+      </form>
+      <button onClick={handleSubmit}>Update Recipe</button>
+    </div>
   )
 }
 
