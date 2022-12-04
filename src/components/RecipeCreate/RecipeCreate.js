@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './RecipeCreate.css'
 
 export const RecipeCreate = () => {
+  const[newRecipe, setNewRecipe] = useState({
+    title:'',
+    cookTime: '',
+    difficult: '',
+    ingredients:'',
+
+  })
+
   return (
     <div>
         <form>

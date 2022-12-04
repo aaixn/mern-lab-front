@@ -13,7 +13,7 @@ function RecipeUpdate() {
   const [form, setForm] = useState({
     title: '',
     cookTime: '',
-    difficult: '',
+    difficult: Boolean,
     ingredients: [],
     instructions: ''
   })
@@ -21,8 +21,9 @@ function RecipeUpdate() {
 
   const updateRecipe = async () => {
     try {
-      // await handleIngredients()
-      await axios.put(`http://localhost:4000/api/recipes/${id}`, form)
+      console.log(form)
+      const change = await axios.put(`http://localhost:4000/api/recipes/${id}`, form)
+      console.log(change)
     }
     catch (err) {
       console.log(err)
@@ -31,14 +32,16 @@ function RecipeUpdate() {
 
   const handleChange = (e) => {
     const newObj = {...form}
+    if (e.target.name === 'ingredients'){
+     let updateIngredient = e.target.value.split(',')
+     setForm({...newObj,ingredients: updateIngredient})
+     return
+    }
     newObj[e.target.name] = e.target.value
     setForm(newObj)
+   
   }
-// console.log(form.ingredients)
-
-//   const handleIngredients = () => {
-//     let updateIngredients = form.ingredients.split(',')
-//   }
+  
 
   return (
     <div>
