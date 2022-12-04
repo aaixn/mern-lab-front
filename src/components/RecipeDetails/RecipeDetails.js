@@ -2,7 +2,6 @@
 // Home component.
 // It will also contain two buttons to Update and Delete the recipe's details.
 
-import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import {useParams, Link} from 'react-router-dom'
 import RecipeDelete from '../RecipeDelete/RecipeDelete';
@@ -13,12 +12,11 @@ const RecipeDetails = ({allRecipes, getRecipes}) => {
   const [recipe, setRecipe] = useState()
   
   useEffect(() => {
-
     const getRecipe = async () => {
       await getRecipes()
       const oneRecipe = await allRecipes.filter(recipe => recipe._id === id)
       setRecipe(oneRecipe)
-    }
+    } // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const oneRecipe = allRecipes.filter(recipe => recipe._id === id)
 

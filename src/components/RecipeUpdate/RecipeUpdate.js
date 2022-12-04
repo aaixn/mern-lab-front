@@ -21,9 +21,8 @@ function RecipeUpdate() {
 
   const updateRecipe = async () => {
     try {
-      console.log(form);
-      const change = await axios.put(`http://localhost:4000/api/recipes/${id}`, form)
-      console.log(change);
+      // await handleIngredients()
+      await axios.put(`http://localhost:4000/api/recipes/${id}`, form)
     }
     catch (err) {
       console.log(err)
@@ -35,8 +34,11 @@ function RecipeUpdate() {
     newObj[e.target.name] = e.target.value
     setForm(newObj)
   }
+// console.log(form.ingredients)
 
-  
+//   const handleIngredients = () => {
+//     let updateIngredients = form.ingredients.split(',')
+//   }
 
   return (
     <div>
