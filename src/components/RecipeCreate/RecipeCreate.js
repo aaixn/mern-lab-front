@@ -6,18 +6,29 @@ export const RecipeCreate = () => {
     title:'',
     cookTime: '',
     difficult: '',
-    ingredients:'',
-
+    ingredients: '',
+    instruction: ''
   })
 
+const handleCreate = (e) => {
+  const newRecipeData = {...newRecipe}
+  if (e.target.name === 'ingredients'){
+    let newIngredients = e.target.value.split(',')
+    setNewRecipe({...newRecipeData, ingredients: newIngredients})
+    return
+  }
+  newRecipeData[e.target.name] = e.target.value
+  setNewRecipe(newRecipeData)  
+}
+console.log(newRecipe)
   return (
     <div>
         <form>
-            <input placeholder="Recipe Title"></input>
-            <input placeholder="Cook Time"></input>
-            <input placeholder="Difficult (true/false)"></input>
-            <input placeholder="Ingredients"></input>
-            <input placeholder="Instructions"></input>
+            <input placeholder="Recipe Title" name='' value='newRecipe.title' onchange=''></input>
+            <input placeholder="Cook Time" name='cookTime' value='newRecipe.cookTime'></input>
+            <input placeholder="Difficult (true/false)" name='difficult' value='newRecipe.difficult'></input>
+            <input placeholder="Ingredients" name='ingredients' value='newRecipe.ingredients'></input>
+            <input placeholder="Instructions" name='instruction' value='newRecipe.instruction'></input>
         </form>
     </div>
   )

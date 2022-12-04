@@ -3,6 +3,7 @@
 
 import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom'
+import { RecipeCreate } from '../RecipeCreate/RecipeCreate';
 
 const Home = ({allRecipes}) => {
   const [showRecipeList, setShowRecipeList] = useState()
@@ -27,6 +28,7 @@ const Home = ({allRecipes}) => {
     <div>
       <h1>All Recipes</h1>
       <div>{showRecipeList}</div>
+      <RecipeCreate />
 
     </div>
   )
