@@ -37,4 +37,6 @@ const Home = ({allRecipes}) => {
 export default Home
 
 // * after delete, displayed recipes does not update to the data in the backend until after reload
+// * same issue with the DELETE, after the POST request is accepted, the page does not automatically
+// refresh/reload to show the new updated data.
 

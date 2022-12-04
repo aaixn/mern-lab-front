@@ -14,7 +14,6 @@ export const RecipeCreate = () => {
   const createNewRecipe = async () => {
     try{
       const newlyCreated = await axios.post('http://localhost:4000/api/recipes/', newRecipe)
-      console.log(newlyCreated)
     } 
     catch (err){
       console.log(err)

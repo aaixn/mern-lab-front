@@ -8,7 +8,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import {useParams} from 'react-router-dom'
 
-function RecipeUpdate() {
+const RecipeUpdate = () => {
   const {id} = useParams()
   const [form, setForm] = useState({
     title: '',
@@ -21,9 +21,7 @@ function RecipeUpdate() {
 
   const updateRecipe = async () => {
     try {
-      console.log(form)
       const change = await axios.put(`http://localhost:4000/api/recipes/${id}`, form)
-      console.log(change)
     }
     catch (err) {
       console.log(err)
@@ -41,7 +39,6 @@ function RecipeUpdate() {
     setForm(newObj)
    
   }
-  
 
   return (
     <div>
