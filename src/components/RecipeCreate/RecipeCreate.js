@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import './RecipeCreate.css'
 
@@ -5,10 +6,20 @@ export const RecipeCreate = () => {
   const[newRecipe, setNewRecipe] = useState({
     title:'',
     cookTime: '',
-    difficult: '',
+    difficult: Boolean,
     ingredients: [],
     instruction: ''
   })
+
+  const createNewRecipe = async () => {
+    try{
+      const newlyCreated = await axios.post('http://localhost:4000/api/recipes/', newRecipe)
+      console.log(newlyCreated)
+    } 
+    catch (err){
+      console.log(err)
+    }
+  }
 
 const handleCreate = (e) => {
   const newRecipeData = {...newRecipe}
@@ -30,7 +41,7 @@ console.log(newRecipe)
             <input placeholder="Ingredients" name='ingredients' value={newRecipe.ingredients} onChange={handleCreate} ></input>
             <input placeholder="Instructions" name='instruction' value={newRecipe.instruction} onChange={handleCreate} ></input>
         </form>
-        <button>Create new recipe</button>
+        <button onClick={createNewRecipe}>Create new recipe</button>
     </div>
   )
 }
