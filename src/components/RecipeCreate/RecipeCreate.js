@@ -6,7 +6,7 @@ export const RecipeCreate = () => {
     title:'',
     cookTime: '',
     difficult: '',
-    ingredients: '',
+    ingredients: [],
     instruction: ''
   })
 
@@ -24,12 +24,13 @@ console.log(newRecipe)
   return (
     <div>
         <form>
-            <input placeholder="Recipe Title" name='' value='newRecipe.title' onchange=''></input>
-            <input placeholder="Cook Time" name='cookTime' value='newRecipe.cookTime'></input>
-            <input placeholder="Difficult (true/false)" name='difficult' value='newRecipe.difficult'></input>
-            <input placeholder="Ingredients" name='ingredients' value='newRecipe.ingredients'></input>
-            <input placeholder="Instructions" name='instruction' value='newRecipe.instruction'></input>
+            <input placeholder="Recipe Title" name='title' value={newRecipe.title} onChange={handleCreate}></input>
+            <input placeholder="Cook Time" name='cookTime' value={newRecipe.cookTime} onChange={handleCreate} ></input>
+            <input placeholder="Difficult (true/false)" name='difficult' value={newRecipe.difficult}onChange={handleCreate} ></input>
+            <input placeholder="Ingredients" name='ingredients' value={newRecipe.ingredients} onChange={handleCreate} ></input>
+            <input placeholder="Instructions" name='instruction' value={newRecipe.instruction} onChange={handleCreate} ></input>
         </form>
+        <button>Create new recipe</button>
     </div>
   )
 }
