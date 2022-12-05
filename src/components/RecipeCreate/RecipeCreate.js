@@ -33,13 +33,13 @@ const handleCreate = (e) => {
   return (
     <div>
         <form>
-            <input placeholder="Recipe Title" name='title' value={newRecipe.title} onChange={handleCreate}></input>
+            <input placeholder="Recipe Title" name='title' value={newRecipe.title} onChange={handleCreate} required></input>
             <input placeholder="Cook Time" name='cookTime' value={newRecipe.cookTime} onChange={handleCreate} ></input>
             <input placeholder="Difficult (true/false)" name='difficult' value={newRecipe.difficult}onChange={handleCreate} ></input>
             <input placeholder="Ingredients" name='ingredients' value={newRecipe.ingredients} onChange={handleCreate} ></input>
             <input placeholder="Instructions" name='instruction' value={newRecipe.instruction} onChange={handleCreate} ></input>
+            <button onClick={createNewRecipe}>Create new recipe</button>
         </form>
-        <button onClick={createNewRecipe}>Create new recipe</button>
     </div>
   )
 }

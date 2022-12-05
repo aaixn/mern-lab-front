@@ -37,19 +37,18 @@ const RecipeUpdate = () => {
     }
     newObj[e.target.name] = e.target.value
     setForm(newObj)
-   
   }
 
   return (
     <div>
       <form>
-        <input placeholder='Recipe Title' name='title' value={form.title} onChange={handleChange}></input>
+        <input placeholder='Recipe Title' name='title' value={form.title} onChange={handleChange} required></input>
         <input placeholder='Cook Time' name='cookTime' value={form.cookTime} onChange={handleChange}></input>
         <input placeholder='Difficult (true or false)' name='difficult' value={form.difficult} onChange={handleChange}></input>
         <input placeholder='Ingredients' name='ingredients' value={form.ingredients} onChange={handleChange}></input>
         <input placeholder='Instructions' name='instructions' value={form.instructions} onChange={handleChange}></input>
+        <button onClick={updateRecipe}>Update Recipe</button>
       </form>
-      <button onClick={updateRecipe}>Update Recipe</button>
     </div>
   )
 }
