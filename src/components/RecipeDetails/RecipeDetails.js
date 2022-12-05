@@ -5,6 +5,7 @@
 import React, { useEffect, useState } from 'react'
 import {useParams, useNavigate} from 'react-router-dom'
 import RecipeUpdate from '../RecipeUpdate/RecipeUpdate';
+import './RecipeDetails.css'
 
 const RecipeDetails = ({allRecipes, getRecipes}) => {
   const {id} = useParams();
@@ -21,17 +22,19 @@ const RecipeDetails = ({allRecipes, getRecipes}) => {
   const oneRecipe = allRecipes.filter(recipe => recipe._id === id)
 
   return oneRecipe[0] ? (           
-    <div className='recipe-details'>
+    <div>
+      <div className='recipe-details'>
       <h1>{oneRecipe[0].title}</h1>
-      <p>Cook Time: {oneRecipe[0].cookTime}</p>
-      <p>Difficult: {oneRecipe[0].difficult ? 'Yes' : 'No'}</p>
-      <p>Ingredients: </p>
+      <p><span className='bold'>Cook Time:</span> {oneRecipe[0].cookTime}</p>
+      <p><span className='bold'>Difficult:</span> {oneRecipe[0].difficult ? 'Yes' : 'No'}</p>
+      <p><span className='bold'>Ingredients:</span> </p>
       {oneRecipe[0].ingredients.map((item, index) => {
         return (
           <li key={index}>{item}</li>
         )
       })}
-      <p>Intructions: {oneRecipe[0].instructions}</p>
+      <p><span className='bold'>Instructions:</span><br></br> {oneRecipe[0].instructions}</p>
+      </div>
       <RecipeUpdate />
       <button className='back' onClick={() => navigate(-1)}>Back</button>
     </div>

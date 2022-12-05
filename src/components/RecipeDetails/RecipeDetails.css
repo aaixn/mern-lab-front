@@ -1,3 +1,9 @@
 .recipe-details {
-    border: solid 2px black;
+    text-align: center;
+    list-style: none;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: 18px;
 }
