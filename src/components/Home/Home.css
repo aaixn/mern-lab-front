@@ -4,8 +4,20 @@ h1 {
 .recipe-list {
     text-align: center;
     margin: 20px;
-    border: solid 2px black;
+    /* border: solid 2px black; */
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
-
+.recipe-card {
+    font-size: 18px;
+    height: fit-content;
+    width: 150px;
+    border: solid 2px black;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}

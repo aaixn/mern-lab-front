@@ -12,7 +12,7 @@ const Home = ({allRecipes}) => {
   useEffect(()=>{
   let recipeList = allRecipes.map((recipe, index) =>{
     return(
-      <div key={index}>
+      <div className='recipe-card' key={index}>
       <Link 
       to={'/recipe/' + recipe._id}
       style={{textDecoration: 'none', color: 'black'}} 
