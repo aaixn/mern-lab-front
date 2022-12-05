@@ -1,0 +1,29 @@
+.recipe-create {
+    margin-top: 30px;
+    text-align: center;
+    /* border: 2px solid black; */
+    justify-content: center;
+}
+.recipe-form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: auto;
+    width: 40%;
+    gap: 10px;
+    /* border: 2px solid black; */
+}
+
+.recipe-form >input {
+    text-align: center;
+    height: 30px;
+}
+
+button {
+    width: fit-content;
+    height: 25px;
+    text-align: center;
+    cursor: pointer;
+    align-self: center;
+}
+

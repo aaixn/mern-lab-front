@@ -1,0 +1,11 @@
+h1 { 
+    text-align: center
+}
+.recipe-list {
+    text-align: center;
+    margin: 20px;
+    border: solid 2px black;
+    display: flex;
+    flex-direction: column;
+}
+

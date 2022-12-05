@@ -20,8 +20,8 @@ const RecipeDetails = ({allRecipes, getRecipes}) => {
   }, [])
   const oneRecipe = allRecipes.filter(recipe => recipe._id === id)
 
-  return oneRecipe[0] ? (           // fix the reload problem
-    <div>
+  return oneRecipe[0] ? (           
+    <div className='recipe-details'>
       <h1>{oneRecipe[0].title}</h1>
       <p>Cook Time: {oneRecipe[0].cookTime}</p>
       <p>Difficult: {oneRecipe[0].difficult ? 'Yes' : 'No'}</p>
