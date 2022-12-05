@@ -9,15 +9,26 @@ h1 {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+    color: #354f52;
 }
 .recipe-card {
     font-size: 18px;
     height: fit-content;
     width: 150px;
-    border: solid 2px black;
+    border: solid 2px #354f52;
     border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px;
+    color: #354f52;
+}
+.recipe-card:hover {
+    color: white;
+    border: solid 2px white;
+    background-color: #354f52;
+}
+a:-webkit-any-link{
+    text-decoration: none;
+    color: inherit;
 }

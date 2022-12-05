@@ -14,8 +14,7 @@ const Home = ({allRecipes}) => {
     return(
       <div className='recipe-card' key={index}>
       <Link 
-      to={'/recipe/' + recipe._id}
-      style={{textDecoration: 'none', color: 'black'}} 
+      to={'/recipe/' + recipe._id} 
       >
         <div> {recipe.title} </div>
         </Link>
