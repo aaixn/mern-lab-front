@@ -4,6 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom'
 import { RecipeCreate } from '../RecipeCreate/RecipeCreate';
+import './Home.css'
 
 const Home = ({allRecipes}) => {
   const [showRecipeList, setShowRecipeList] = useState()
@@ -11,10 +12,9 @@ const Home = ({allRecipes}) => {
   useEffect(()=>{
   let recipeList = allRecipes.map((recipe, index) =>{
     return(
-      <div key={index}>
+      <div className='recipe-card' key={index}>
       <Link 
-      to={'/recipe/' + recipe._id}
-      style={{textDecoration: 'none', color: 'black'}} 
+      to={'/recipe/' + recipe._id} 
       >
         <div> {recipe.title} </div>
         </Link>
@@ -27,7 +27,7 @@ const Home = ({allRecipes}) => {
   return (
     <div>
       <h1>All Recipes</h1>
-      <div>{showRecipeList}</div>
+      <div className='recipe-list'>{showRecipeList}</div>
       <RecipeCreate />
 
     </div>
@@ -36,7 +36,4 @@ const Home = ({allRecipes}) => {
 
 export default Home
 
-// * after delete, displayed recipes does not update to the data in the backend until after reload
-// * same issue with the DELETE, after the POST request is accepted, the page does not automatically
-// refresh/reload to show the new updated data.
 

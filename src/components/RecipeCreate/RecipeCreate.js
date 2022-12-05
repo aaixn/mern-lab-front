@@ -31,8 +31,8 @@ const handleCreate = (e) => {
   setNewRecipe(newRecipeData)  
 }
   return (
-    <div>
-        <form>
+    <div className='recipe-create'>
+        <form className='recipe-form'>
             <input placeholder="Recipe Title" name='title' value={newRecipe.title} onChange={handleCreate} required></input>
             <input placeholder="Cook Time" name='cookTime' value={newRecipe.cookTime} onChange={handleCreate} ></input>
             <input placeholder="Difficult (true/false)" name='difficult' value={newRecipe.difficult}onChange={handleCreate} ></input>
