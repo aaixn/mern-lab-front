@@ -12,7 +12,7 @@ const App = () => {
 
   useEffect(() => {
     getRecipes()
-  }, [])
+  }, [allRecipes])
 
   const getRecipes = () => {
     axios({
