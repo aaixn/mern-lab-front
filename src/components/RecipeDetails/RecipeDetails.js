@@ -3,8 +3,7 @@
 // It will also contain two buttons to Update and Delete the recipe's details.
 
 import React, { useEffect, useState } from 'react'
-import {useParams, Link, useNavigate} from 'react-router-dom'
-import RecipeDelete from '../RecipeDelete/RecipeDelete';
+import {useParams, useNavigate} from 'react-router-dom'
 import RecipeUpdate from '../RecipeUpdate/RecipeUpdate';
 
 const RecipeDetails = ({allRecipes, getRecipes}) => {
@@ -33,7 +32,6 @@ const RecipeDetails = ({allRecipes, getRecipes}) => {
         )
       })}
       <p>Intructions: {oneRecipe[0].instructions}</p>
-      <Link to='/'><RecipeDelete /></Link>
       <RecipeUpdate />
       <button className='back' onClick={() => navigate(-1)}>Back</button>
     </div>

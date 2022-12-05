@@ -6,7 +6,10 @@
 
 import axios from 'axios'
 import React, { useState } from 'react'
-import {useParams} from 'react-router-dom'
+import {useParams, Link} from 'react-router-dom'
+import './RecipeUpdate.css'
+
+import RecipeDelete from '../RecipeDelete/RecipeDelete'
 
 const RecipeUpdate = () => {
   const {id} = useParams()
@@ -41,13 +44,14 @@ const RecipeUpdate = () => {
 
   return (
     <div>
-      <form>
+      <form className='recipe-form'>
         <input placeholder='Recipe Title' name='title' value={form.title} onChange={handleChange} required></input>
         <input placeholder='Cook Time' name='cookTime' value={form.cookTime} onChange={handleChange}></input>
         <input placeholder='Difficult (true or false)' name='difficult' value={form.difficult} onChange={handleChange}></input>
         <input placeholder='Ingredients' name='ingredients' value={form.ingredients} onChange={handleChange}></input>
         <input placeholder='Instructions' name='instructions' value={form.instructions} onChange={handleChange}></input>
         <button onClick={updateRecipe}>Update Recipe</button>
+        <Link to='/'><RecipeDelete /></Link>
       </form>
     </div>
   )
