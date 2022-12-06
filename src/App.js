@@ -17,7 +17,7 @@ const App = () => {
   const getRecipes = () => {
     axios({
       method: 'get',
-      url: 'http://localhost:4000/api/recipes'
+      url: 'https://floral-bird-829.fly.dev/api/recipes'
     })
     .then(res => 
       setAllRecipes(res.data)
