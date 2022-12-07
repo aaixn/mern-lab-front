@@ -14,8 +14,8 @@ const App = () => {
     getRecipes()
   }, [allRecipes])
 
-  const getRecipes = () => {
-    axios({
+  const getRecipes = async () => {
+    await axios({
       method: 'get',
       url: 'https://floral-bird-829.fly.dev/api/recipes'
     })

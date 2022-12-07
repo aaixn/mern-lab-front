@@ -24,7 +24,7 @@ const RecipeUpdate = () => {
 
   const updateRecipe = async () => {
     try {
-      const change = await axios.put(`http://localhost:4000/api/recipes/${id}`, form)
+      const change = await axios.put(`https://floral-bird-829.fly.dev/api/recipes/${id}`, form)
     }
     catch (err) {
       console.log(err)
