@@ -13,7 +13,7 @@ const RecipeDelete = () => {
   const deleteRecipe = () => {
     axios({
       method: 'delete',
-      url: `http://localhost:4000/api/recipes/${id}`
+      url: `https://floral-bird-829.fly.dev/api/recipes/${id}`
     })
     .catch (err => console.log(err))
   }
